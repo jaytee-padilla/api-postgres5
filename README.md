@@ -1,5 +1,5 @@
 # Just Tech News DB
-Users can create, read, update, and delete a profile in the database
+## Users can create, read, update, and delete a profile in the database
 
 * As a user, I can create my own profile that stores information about me
 
