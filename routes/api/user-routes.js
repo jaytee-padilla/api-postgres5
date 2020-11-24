@@ -13,7 +13,25 @@ router.get('/', (req, res) => {
 });
 
 // GET /api/users/:id
-router.get('/:id', (req, res) => {});
+router.get('/:id', (req, res) => {
+  User.findOne({
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(dbUserData => {
+      if (!dbUserData) {
+        res.status(404).json({message: 'No user found with this id'});
+        return;
+      }
+
+      res.status(200).json(dbUserData);
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json(err);
+    });
+});
 
 // POST /api/users
 router.post('/', (req, res) => {});
